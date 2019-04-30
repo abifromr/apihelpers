@@ -17,7 +17,7 @@ Suggests:
     covr,
     knitr,
     rmarkdown
-Imports: httr, readr
+Imports: httr, readr, usethis
 Depends: R (>= 2.10)
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
