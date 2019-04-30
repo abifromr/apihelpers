@@ -1,0 +1,14 @@
+request,parameter,option,type,possible_values,default,seperator
+slimprints,uniportid,required,character,,NULL,","
+slimsearch,uniportid,required,character,,NULL,","
+slimsearch,motif,optional,regex,,,
+slimsearch,taxonid,optional,numeric,,9606,
+slimsearch,orthdb,optional,character,Orthdb,Orthdb,
+slimfinder,uniportid,required,character,,NULL,","
+slimfinder,dismask,optional,character,T,T,
+comparemotif,motifs,required,regex,,NULL,
+comparemotif,cmotifs,required,regex,,NULL,
+peploc,uniportid,required,character,,NULL,","
+slimpred,uniportid,required,character,,NULL,","
+gopher,uniportid,required,character,,NULL,","
+gopher,taxonid,optional,numeric,,9606,
