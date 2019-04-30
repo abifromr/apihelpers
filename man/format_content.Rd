@@ -4,12 +4,14 @@
 \alias{format_content}
 \title{Format the content of a response.}
 \usage{
-format_content(resp, format = "tsv")
+format_content(resp, read_function = read_tsv, ...)
 }
 \arguments{
 \item{resp}{An object of class \code{response}.}
 
-\item{format}{A \code{character}. Only 'tsv' is used.}
+\item{read_function}{A funtion to read the response content.}
+
+\item{...}{Other arguments passed to \code{read_function}.}
 }
 \value{
 A \code{tibble}.

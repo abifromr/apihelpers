@@ -6,14 +6,18 @@ Authors@R: person("Mahmoud", "Ahmed",
   email = "mahmoud.s.fahmy@students.kasralainy.edu.eg",
   role = c("aut", "cre"))
 Description: Provide functions for constructing a URL, sending requests and
-  caputring API responses. The query parameters are checked and formated
+  capturing API responses. The query parameters are checked and formatted
   according to a 'query_map' which describes the type of requests and queries
   allowed by the API.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Suggests: 
-    testthat
+    testthat,
+    covr,
+    knitr,
+    rmarkdown
 Imports: httr, readr
 Depends: R (>= 2.10)
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr

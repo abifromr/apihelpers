@@ -1,0 +1,99 @@
+---
+title: "Write a API client with apihelpers"
+author: "Mahmoud Shaaban"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Write a API client with apihelpers}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Overview
+
+Provide functions for constructing a URL, sending requests and capturing API 
+responses. The query parameters are checked and formatted according to a 
+`query_map` which describes the type of requests and queries allowed by the 
+API.
+
+## Installation
+
+Install `apihelpers` from GitHub using `devtools`
+
+```r
+devtools::install_github('abifromr/apihelpers')
+```
+
+## What `apihelpers` does?
+
+This function should be able to do three things:
+  1. Take the query paramters as an input from the user
+  2. Send an API request
+  3. Return the API response in an approptiate format
+
+`apihelpers` provide functions to help with these three steps; `make_query`,
+`send_request` and `format_content`.
+
+Because Each API is different, we use a `query_map` which describe and document
+the query paramters specific to the interface. Included in the package two 
+datasets called `query_map_string` and `query_map_bioware` which describe the 
+STRING (v11) and BIOWARE APIs.
+
+## Example from `stringapi`
+
+```{r}
+# loading required libraries
+library(apihelpers)
+library(httr)
+```
+
+```{r}
+# show query_map for string api
+query_map_string
+```
+
+```{r}
+# writ a wrapper function
+get_string_ids <- function(identifiers = NULL, species = NULL) {
+  # construct query
+  param <- list(identifiers = identifiers,
+                species = species)
+  
+  query <- make_query(request = 'get_string_ids',
+                      parameters = param,
+                      query_map = query_map_string)
+  
+  # make url
+  url <- modify_url('',
+                    scheme = 'https',
+                    hostname = 'string-db.org',
+                    path = 'api/tsv/get_string_ids',
+                    query = query)
+
+  # get response
+  resp <- send_request(url)
+
+  # format contents
+  res <- format_content(resp)
+
+  # return results
+  return(res)
+}
+```
+
+```{r}
+res <- get_string_ids(identifiers = c('p53', 'dcdk2'),
+                      species = 9606)
+```
+
+```{r}
+head(res)
+```
+
