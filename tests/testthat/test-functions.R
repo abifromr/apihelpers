@@ -72,3 +72,33 @@ test_that("test format_content", {
 
   expect_error(format_content(resp))
 })
+
+test_that("check_possible works", {
+  # with character
+  out <- check_possible('character',
+                        possible = 'low,high,any',
+                        input = 'any')
+  expect_true(out)
+
+  out <- check_possible('character',
+                        possible = 'low,high,any',
+                        input = 'verylow')
+  expect_false(out)
+
+  # with numeric
+  out <- check_possible('numeric',
+                        possible = '0,10',
+                        input =  5)
+  expect_true(out)
+
+  out <- check_possible('numeric',
+                        possible = '0,10',
+                        input =  99)
+  expect_false(out)
+
+  # with a single possible value
+  out <- check_possible('character',
+                        possible = 'any',
+                        input = 'any')
+  expect_true(out)
+})

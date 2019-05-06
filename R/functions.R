@@ -60,7 +60,10 @@ make_query <- function(request, parameters, query_map) {
 
     # check possible values
     if(!is.na(expected$possible_values)) {
-      if(input %in% expected$possible_values) {
+      out <- check_possible(type = expected$type,
+                            possible = expected$possible_values,
+                            input = input)
+      if(!out) {
         stop()
       }
     }
@@ -89,7 +92,10 @@ make_query <- function(request, parameters, query_map) {
 
       # check possible values
       if(!is.na(expected$possible_values)) {
-        if(input %in% expected$possible_values) {
+        out <- check_possible(type = expected$type,
+                              possible = expected$possible_values,
+                              input = input)
+        if(!out) {
           stop()
         }
       }
@@ -180,4 +186,12 @@ format_content <- function(resp, read_function = read_tsv, ...) {
 
   # return res
   return(res)
+}
+
+#' @export
+check_possible <- function(type, possible, input) {
+  values <- unlist(strsplit(possible, ','))
+  switch(type,
+         'numeric' = (input >= as.numeric(values[1])) & (input <= as.numeric(values[2])),
+         'character' = input %in% values)
 }
