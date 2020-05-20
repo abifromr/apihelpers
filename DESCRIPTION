@@ -19,5 +19,5 @@ Suggests:
     rmarkdown
 Imports: httr, readr, usethis
 Depends: R (>= 2.10)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 VignetteBuilder: knitr

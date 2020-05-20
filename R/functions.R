@@ -188,6 +188,14 @@ format_content <- function(resp, read_function = read_tsv, ...) {
   return(res)
 }
 
+#' Check input is possible
+#'
+#' Test whether the 'input' is among the possible/allowed entries.
+#'
+#' @param type A character string
+#' @param possible A vector of characters or numerics
+#' @param input A vector of characters or numerics
+#'
 #' @export
 check_possible <- function(type, possible, input) {
   values <- unlist(strsplit(possible, ','))

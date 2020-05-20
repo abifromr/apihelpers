@@ -1,6 +1,7 @@
 [![Travis build status](https://travis-ci.org/abifromr/apihelpers.svg?branch=master)](https://travis-ci.org/abifromr/apihelpers)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/abifromr/apihelpers?branch=master&svg=true)](https://ci.appveyor.com/project/abifromr/apihelpers)
 [![Coverage status](https://codecov.io/gh/abifromr/apihelpers/branch/master/graph/badge.svg)](https://codecov.io/github/abifromr/apihelpers?branch=master)
+[![R build status](https://github.com/abifromr/apihelpers/workflows/R-CMD-check/badge.svg)](https://github.com/abifromr/apihelpers/actions)
 
 # apihelpers
 

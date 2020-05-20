@@ -4,7 +4,9 @@
 \name{query_map_string}
 \alias{query_map_string}
 \title{query_map_string}
-\format{An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 26 rows and 7 columns.}
+\format{
+An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 26 rows and 7 columns.
+}
 \usage{
 query_map_string
 }

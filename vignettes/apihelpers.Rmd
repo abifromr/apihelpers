@@ -60,7 +60,7 @@ query_map_string
 ```
 
 ```{r}
-# writ a wrapper function
+# write a wrapper function
 get_string_ids <- function(identifiers = NULL, species = NULL) {
   # construct query
   param <- list(identifiers = identifiers,
@@ -89,11 +89,13 @@ get_string_ids <- function(identifiers = NULL, species = NULL) {
 ```
 
 ```{r}
+# make the call to api
 res <- get_string_ids(identifiers = c('p53', 'dcdk2'),
                       species = 9606)
 ```
 
 ```{r}
+# show results of the api call
 head(res)
 ```
 
